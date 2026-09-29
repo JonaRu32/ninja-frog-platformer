@@ -1,7 +1,7 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://yoi17jofrjmr"]
 
 [ext_resource type="TileSet" path="res://escenas/niveles/terreno_tileset.tres" id="1_71vm1"]
-[ext_resource type="PackedScene" path="res://escenas/jugador/rana_ninja.tscn" id="3_r1ssg"]
+[ext_resource type="PackedScene" uid="uid://dp1t0b0cf6oa8" path="res://escenas/jugador/rana_ninja.tscn" id="3_r1ssg"]
 [ext_resource type="PackedScene" path="res://escenas/trampas/pinchos.tscn" id="4_pinch"]
 
 [node name="Nivel1" type="Node2D" unique_id=1636252120]

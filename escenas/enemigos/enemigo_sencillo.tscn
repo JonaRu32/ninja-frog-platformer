@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://rce2gq3wcghx"]
+
+[node name="enemigo_Sencillo" type="Node2D" unique_id=870955701]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=30355732]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1302166178]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=209089157]
