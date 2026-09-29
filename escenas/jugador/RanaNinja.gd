@@ -19,9 +19,9 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity = velocity + get_gravity() * delta
 
-	if Input.is_action_pressed("izqda"):
+	if Input.is_action_pressed("izquierda"):
 		velocity.x = -SPEED
-	elif Input.is_action_pressed("der"):
+	elif Input.is_action_pressed("derecha"):
 		velocity.x = SPEED
 	else:
 		velocity.x = 0
@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jumps = 0
 		
-	if jumps < MAX_JUMPS and Input.is_action_just_pressed("ui_up"):
+	if jumps < MAX_JUMPS and Input.is_action_just_pressed("saltar"):
 		velocity.y = JUMP_SPEED
 		jumps += 1
 		
