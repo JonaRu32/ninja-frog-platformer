@@ -63,9 +63,13 @@ func update_animation() -> void:
 			sprite.play("fall")
 
 
-func _on_pinchos_body_entered(body: Node2D) -> void:
+# La llama cualquier cosa que mate a la rana (pinchos, enemigos, balas...)
+func morir() -> void:
+	if death:
+		return
 	print ("Te mueres")
 	death = true
+	velocity = Vector2.ZERO
 	sprite.play("desaparecer")
 	
 func _on_animated_sprite_2d_animation_finished() -> void:

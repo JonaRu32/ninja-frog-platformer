@@ -421,7 +421,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="RanaNinja" type="CharacterBody2D" unique_id=918157939]
+[node name="RanaNinja" type="CharacterBody2D" unique_id=918157939 groups=["jugador"]]
 collision_layer = 2
 script = ExtResource("1_jv511")
 

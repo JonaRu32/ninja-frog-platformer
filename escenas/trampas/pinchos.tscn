@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://escenas/trampas/pinchos.gd" id="1_pinch"]
+[ext_resource type="Texture2D" uid="uid://cq3aejq5k7knl" path="res://assets/pixel-adventure/Traps/Spikes/Idle.png" id="2_spike"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+size = Vector2(16, 8)
+
+[node name="Pinchos" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_pinch")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_spike")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

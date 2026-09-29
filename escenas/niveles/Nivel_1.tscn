@@ -3,16 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://dguqd3cm3wdxb" path="res://assets/pixel-adventure/Background/Green.png" id="1_kuiv7"]
 [ext_resource type="Texture2D" uid="uid://d1jllsdtolli8" path="res://assets/pixel-adventure/Background/Brown.png" id="2_bnlnp"]
 [ext_resource type="PackedScene" uid="uid://dp1t0b0cf6oa8" path="res://escenas/jugador/rana_ninja.tscn" id="3_r1ssg"]
-[ext_resource type="Texture2D" uid="uid://cq3aejq5k7knl" path="res://assets/pixel-adventure/Traps/Spikes/Idle.png" id="12_gcyqv"]
+[ext_resource type="PackedScene" path="res://escenas/trampas/pinchos.tscn" id="4_pinch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8nfx"]
 size = Vector2(1000, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5aty5"]
 size = Vector2(64, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
-size = Vector2(16, 8)
 
 [node name="Nivel1" type="Node2D" unique_id=1636252120]
 
@@ -58,16 +55,5 @@ texture = ExtResource("2_bnlnp")
 [node name="RanaNinja" parent="." unique_id=918157939 instance=ExtResource("3_r1ssg")]
 position = Vector2(-9, -40)
 
-[node name="Pinchos" type="Area2D" parent="." unique_id=1661925877]
+[node name="Pinchos" parent="." instance=ExtResource("4_pinch")]
 position = Vector2(-200, -8)
-collision_layer = 4
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Pinchos" unique_id=2146324492]
-texture = ExtResource("12_gcyqv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pinchos" unique_id=1158719609]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_lfkbx")
-
-[connection signal="body_entered" from="Pinchos" to="RanaNinja" method="_on_pinchos_body_entered"]
