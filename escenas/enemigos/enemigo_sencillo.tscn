@@ -1,9 +1,120 @@
 [gd_scene format=3 uid="uid://rce2gq3wcghx"]
 
-[node name="enemigo_Sencillo" type="Node2D" unique_id=870955701]
+[ext_resource type="Script" path="res://escenas/enemigos/enemigo_sencillo.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Main Characters/Mask Dude/Run (32x32).png" id="2_run"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=30355732]
+[sub_resource type="AtlasTexture" id="AtlasTexture_run0"]
+atlas = ExtResource("2_run")
+region = Rect2(0, 0, 32, 32)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1302166178]
+[sub_resource type="AtlasTexture" id="AtlasTexture_run1"]
+atlas = ExtResource("2_run")
+region = Rect2(32, 0, 32, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=209089157]
+[sub_resource type="AtlasTexture" id="AtlasTexture_run2"]
+atlas = ExtResource("2_run")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_run3"]
+atlas = ExtResource("2_run")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_run4"]
+atlas = ExtResource("2_run")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_run5"]
+atlas = ExtResource("2_run")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_run6"]
+atlas = ExtResource("2_run")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_run7"]
+atlas = ExtResource("2_run")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_run8"]
+atlas = ExtResource("2_run")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_run9"]
+atlas = ExtResource("2_run")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_run10"]
+atlas = ExtResource("2_run")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_run11"]
+atlas = ExtResource("2_run")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mask"]
+animations = [
+{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run5")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run6")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run7")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run8")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run9")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run10")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_run11")}
+],
+"loop": true,
+"name": &"run",
+"speed": 20.0
+}
+]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuerpo"]
+size = Vector2(16, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_zona"]
+size = Vector2(14, 20)
+
+[node name="EnemigoSencillo" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mask")
+animation = &"run"
+autoplay = "run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_cuerpo")
+
+[node name="ParedDerecha" type="RayCast2D" parent="."]
+position = Vector2(0, 4)
+target_position = Vector2(12, 0)
+
+[node name="ParedIzquierda" type="RayCast2D" parent="."]
+position = Vector2(0, 4)
+target_position = Vector2(-12, 0)
+
+[node name="SueloDerecha" type="RayCast2D" parent="."]
+position = Vector2(10, 8)
+target_position = Vector2(0, 16)
+
+[node name="SueloIzquierda" type="RayCast2D" parent="."]
+position = Vector2(-10, 8)
+target_position = Vector2(0, 16)
+
+[node name="ZonaMortal" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaMortal"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_zona")
+
+[connection signal="body_entered" from="ZonaMortal" to="." method="_on_zona_mortal_body_entered"]
