@@ -1,0 +1,168 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://escenas/enemigos/enemigo_bola.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Main Characters/Mask Dude/Idle (32x32).png" id="2_idle"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Main Characters/Mask Dude/Hit (32x32).png" id="3_hit"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Traps/Spiked Ball/Spiked Ball.png" id="4_bola"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Traps/Spiked Ball/Chain.png" id="5_cadena"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle0"]
+atlas = ExtResource("2_idle")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle1"]
+atlas = ExtResource("2_idle")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle2"]
+atlas = ExtResource("2_idle")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle3"]
+atlas = ExtResource("2_idle")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle4"]
+atlas = ExtResource("2_idle")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle5"]
+atlas = ExtResource("2_idle")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle6"]
+atlas = ExtResource("2_idle")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle7"]
+atlas = ExtResource("2_idle")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle8"]
+atlas = ExtResource("2_idle")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle9"]
+atlas = ExtResource("2_idle")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle10"]
+atlas = ExtResource("2_idle")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hit0"]
+atlas = ExtResource("3_hit")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hit1"]
+atlas = ExtResource("3_hit")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hit2"]
+atlas = ExtResource("3_hit")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hit3"]
+atlas = ExtResource("3_hit")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hit4"]
+atlas = ExtResource("3_hit")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hit5"]
+atlas = ExtResource("3_hit")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hit6"]
+atlas = ExtResource("3_hit")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mask"]
+animations = [
+{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_hit0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_hit1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_hit2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_hit3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_hit4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_hit5")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_hit6")}
+],
+"loop": false,
+"name": &"hit",
+"speed": 20.0
+}
+,
+{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle5")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle6")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle7")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle8")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle9")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle10")}
+],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}
+]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuerpo"]
+size = Vector2(16, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bola"]
+radius = 11.0
+
+[node name="EnemigoBola" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mask")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Cuerpo" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_cuerpo")
+
+[node name="Orbita" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Cadena1" type="Sprite2D" parent="Orbita"]
+position = Vector2(12, 0)
+texture = ExtResource("5_cadena")
+
+[node name="Cadena2" type="Sprite2D" parent="Orbita"]
+position = Vector2(22, 0)
+texture = ExtResource("5_cadena")
+
+[node name="Cadena3" type="Sprite2D" parent="Orbita"]
+position = Vector2(32, 0)
+texture = ExtResource("5_cadena")
+
+[node name="Bola" type="Area2D" parent="Orbita"]
+position = Vector2(44, 0)
+collision_layer = 16
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Orbita/Bola"]
+texture = ExtResource("4_bola")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbita/Bola"]
+shape = SubResource("CircleShape2D_bola")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Cuerpo" to="." method="_on_cuerpo_body_entered"]
+[connection signal="body_entered" from="Orbita/Bola" to="." method="_on_bola_body_entered"]
