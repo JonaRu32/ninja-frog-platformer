@@ -1,0 +1,129 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://escenas/enemigos/bala_animada.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Traps/Arrow/Idle (18x18).png" id="2_flecha"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flecha0"]
+atlas = ExtResource("2_flecha")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flecha1"]
+atlas = ExtResource("2_flecha")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flecha2"]
+atlas = ExtResource("2_flecha")
+region = Rect2(36, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flecha3"]
+atlas = ExtResource("2_flecha")
+region = Rect2(54, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flecha4"]
+atlas = ExtResource("2_flecha")
+region = Rect2(72, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flecha5"]
+atlas = ExtResource("2_flecha")
+region = Rect2(90, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flecha6"]
+atlas = ExtResource("2_flecha")
+region = Rect2(108, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flecha7"]
+atlas = ExtResource("2_flecha")
+region = Rect2(126, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flecha8"]
+atlas = ExtResource("2_flecha")
+region = Rect2(144, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flecha9"]
+atlas = ExtResource("2_flecha")
+region = Rect2(162, 0, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flecha"]
+animations = [
+{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_flecha0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_flecha1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_flecha2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_flecha3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_flecha4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_flecha5")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_flecha6")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_flecha7")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_flecha8")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_flecha9")}
+],
+"loop": true,
+"name": &"volar",
+"speed": 20.0
+}
+]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flecha"]
+size = Vector2(16, 8)
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bala:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_recorrido"]
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bala:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-320, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bala"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"recorrido": SubResource("Animation_recorrido")
+}
+
+[node name="BalaAnimada" type="Node2D"]
+
+[node name="Bala" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bala"]
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_flecha")
+animation = &"volar"
+autoplay = "volar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bala"]
+shape = SubResource("RectangleShape2D_flecha")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bala")
+}
+autoplay = &"recorrido"
+
+[connection signal="body_entered" from="Bala" to="Bala" method="_on_body_entered"]
