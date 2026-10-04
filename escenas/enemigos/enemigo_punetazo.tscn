@@ -1,0 +1,183 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://escenas/enemigos/enemigo_punetazo.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/old-man/Old Man-idle-trimmed.png" id="2_idle"]
+[ext_resource type="Texture2D" path="res://assets/old-man/Old Man-punch.png" id="3_punch"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle0"]
+atlas = ExtResource("2_idle")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle1"]
+atlas = ExtResource("2_idle")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle2"]
+atlas = ExtResource("2_idle")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle3"]
+atlas = ExtResource("2_idle")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle4"]
+atlas = ExtResource("2_idle")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle5"]
+atlas = ExtResource("2_idle")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle6"]
+atlas = ExtResource("2_idle")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle7"]
+atlas = ExtResource("2_idle")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle8"]
+atlas = ExtResource("2_idle")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch0"]
+atlas = ExtResource("3_punch")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch1"]
+atlas = ExtResource("3_punch")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch2"]
+atlas = ExtResource("3_punch")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch3"]
+atlas = ExtResource("3_punch")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch4"]
+atlas = ExtResource("3_punch")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch5"]
+atlas = ExtResource("3_punch")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch6"]
+atlas = ExtResource("3_punch")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch7"]
+atlas = ExtResource("3_punch")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch8"]
+atlas = ExtResource("3_punch")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch9"]
+atlas = ExtResource("3_punch")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch10"]
+atlas = ExtResource("3_punch")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch11"]
+atlas = ExtResource("3_punch")
+region = Rect2(768, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch12"]
+atlas = ExtResource("3_punch")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch13"]
+atlas = ExtResource("3_punch")
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch14"]
+atlas = ExtResource("3_punch")
+region = Rect2(512, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_punch15"]
+atlas = ExtResource("3_punch")
+region = Rect2(768, 768, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oldman"]
+animations = [
+{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle5")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle6")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle7")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_idle8")}
+],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}
+,
+{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch5")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch6")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch7")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch8")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch9")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch10")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch11")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch12")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch13")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch14")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_punch15")}
+],
+"loop": false,
+"name": &"punch",
+"speed": 14.0
+}
+]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_golpe"]
+size = Vector2(20, 14)
+
+[node name="EnemigoPunetazo" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_oldman")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="RayDerecha" type="RayCast2D" parent="."]
+target_position = Vector2(70, 0)
+collision_mask = 2
+
+[node name="RayIzquierda" type="RayCast2D" parent="."]
+target_position = Vector2(-70, 0)
+collision_mask = 2
+
+[node name="Golpe" type="Area2D" parent="."]
+position = Vector2(18, -4)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Golpe"]
+shape = SubResource("RectangleShape2D_golpe")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="body_entered" from="Golpe" to="." method="_on_golpe_body_entered"]
+[connection signal="body_exited" from="Golpe" to="." method="_on_golpe_body_exited"]
