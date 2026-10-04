@@ -63,7 +63,7 @@ func update_animation() -> void:
 			sprite.play("fall")
 
 
-# La llama cualquier cosa que mate a la rana (pinchos, enemigos, balas...)
+
 func morir() -> void:
 	if death:
 		return
