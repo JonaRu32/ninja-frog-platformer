@@ -1,0 +1,97 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://escenas/enemigos/bala_estatica.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Traps/Saw/On (38x38).png" id="2_sierra"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sierra0"]
+atlas = ExtResource("2_sierra")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sierra1"]
+atlas = ExtResource("2_sierra")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sierra2"]
+atlas = ExtResource("2_sierra")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sierra3"]
+atlas = ExtResource("2_sierra")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sierra4"]
+atlas = ExtResource("2_sierra")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sierra5"]
+atlas = ExtResource("2_sierra")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sierra6"]
+atlas = ExtResource("2_sierra")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sierra7"]
+atlas = ExtResource("2_sierra")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sierra"]
+animations = [
+{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_sierra0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_sierra1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_sierra2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_sierra3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_sierra4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_sierra5")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_sierra6")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_sierra7")}
+],
+"loop": true,
+"name": &"girar",
+"speed": 20.0
+}
+]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sierra"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_golpe"]
+radius = 13.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fin"]
+size = Vector2(8, 48)
+
+[node name="BalaEstatica" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Bala" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bala"]
+sprite_frames = SubResource("SpriteFrames_sierra")
+animation = &"girar"
+autoplay = "girar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bala"]
+shape = SubResource("CircleShape2D_sierra")
+
+[node name="Golpe" type="Area2D" parent="Bala"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bala/Golpe"]
+shape = SubResource("CircleShape2D_golpe")
+
+[node name="FinRecorrido" type="Area2D" parent="."]
+position = Vector2(-320, 0)
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinRecorrido"]
+shape = SubResource("RectangleShape2D_fin")
+
+[connection signal="body_entered" from="Bala/Golpe" to="." method="_on_golpe_body_entered"]
+[connection signal="area_entered" from="FinRecorrido" to="." method="_on_fin_recorrido_area_entered"]
