@@ -1,0 +1,158 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://escenas/objetos/fruta.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Items/Fruits/Apple.png" id="2_manzana"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Items/Fruits/Collected.png" id="3_cogida"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana0"]
+atlas = ExtResource("2_manzana")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana1"]
+atlas = ExtResource("2_manzana")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana2"]
+atlas = ExtResource("2_manzana")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana3"]
+atlas = ExtResource("2_manzana")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana4"]
+atlas = ExtResource("2_manzana")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana5"]
+atlas = ExtResource("2_manzana")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana6"]
+atlas = ExtResource("2_manzana")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana7"]
+atlas = ExtResource("2_manzana")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana8"]
+atlas = ExtResource("2_manzana")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana9"]
+atlas = ExtResource("2_manzana")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana10"]
+atlas = ExtResource("2_manzana")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana11"]
+atlas = ExtResource("2_manzana")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana12"]
+atlas = ExtResource("2_manzana")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana13"]
+atlas = ExtResource("2_manzana")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana14"]
+atlas = ExtResource("2_manzana")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana15"]
+atlas = ExtResource("2_manzana")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manzana16"]
+atlas = ExtResource("2_manzana")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cogida0"]
+atlas = ExtResource("3_cogida")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cogida1"]
+atlas = ExtResource("3_cogida")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cogida2"]
+atlas = ExtResource("3_cogida")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cogida3"]
+atlas = ExtResource("3_cogida")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cogida4"]
+atlas = ExtResource("3_cogida")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cogida5"]
+atlas = ExtResource("3_cogida")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fruta"]
+animations = [
+{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_cogida0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_cogida1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_cogida2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_cogida3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_cogida4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_cogida5")}
+],
+"loop": false,
+"name": &"cogida",
+"speed": 20.0
+}
+,
+{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana5")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana6")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana7")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana8")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana9")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana10")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana11")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana12")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana13")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana14")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana15")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_manzana16")}
+],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}
+]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fruta"]
+radius = 6.0
+
+[node name="Fruta" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fruta")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fruta")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

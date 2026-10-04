@@ -1,0 +1,95 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://escenas/objetos/meta.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Items/Checkpoints/End/End (Idle).png" id="2_idle"]
+[ext_resource type="Texture2D" path="res://assets/pixel-adventure/Items/Checkpoints/End/End (Pressed) (64x64).png" id="3_pulsada"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pulsada0"]
+atlas = ExtResource("3_pulsada")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pulsada1"]
+atlas = ExtResource("3_pulsada")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pulsada2"]
+atlas = ExtResource("3_pulsada")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pulsada3"]
+atlas = ExtResource("3_pulsada")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pulsada4"]
+atlas = ExtResource("3_pulsada")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pulsada5"]
+atlas = ExtResource("3_pulsada")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pulsada6"]
+atlas = ExtResource("3_pulsada")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pulsada7"]
+atlas = ExtResource("3_pulsada")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_meta"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("2_idle")}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, 
+{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_pulsada0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_pulsada1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_pulsada2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_pulsada3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_pulsada4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_pulsada5")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_pulsada6")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_pulsada7")}
+],
+"loop": false,
+"name": &"pulsada",
+"speed": 20.0
+}
+]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_meta"]
+size = Vector2(28, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_meta"]
+font_size = 8
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Meta" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_meta")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_meta")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -60.0
+offset_top = -50.0
+offset_right = 60.0
+offset_bottom = -38.0
+text = "¡Nivel completado!"
+label_settings = SubResource("LabelSettings_meta")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
