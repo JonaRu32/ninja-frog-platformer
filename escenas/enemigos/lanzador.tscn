@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c8uxtbqorvwf5"]
+
+[ext_resource type="Script" uid="uid://c4nh788bq4nox" path="res://lanzador.gd" id="1_i061j"]
+[ext_resource type="Texture2D" uid="uid://4rqtihq1fj2p" path="res://assets/pvz_peashooter_lanzaguisantes_in_pixel_art_by_lionel270yt_dlslqec.png" id="2_2splw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+size = Vector2(8, 10.949999)
+
+[node name="Lanzador" type="StaticBody2D" unique_id=1286001654]
+collision_layer = 16
+script = ExtResource("1_i061j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2058523816]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_2splw")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=151169451]
+position = Vector2(-3.999999, 48.000004)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Disparo" type="Timer" parent="." unique_id=8947787]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Disparo" to="." method="_on_disparo_timeout"]
